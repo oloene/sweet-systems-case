@@ -1,0 +1,18 @@
+.top-banner {
+    display: flex;
+    height: var(--top-banner-height);
+    border-bottom: var(--border-width) solid var(--color-border);
+}
+
+.current-user {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.current-user > * {
+    margin: 8px;
+}
+.current-user :last-child {
+    margin-right: 20px;
+}

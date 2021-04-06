@@ -1,0 +1,55 @@
+.navbar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    font-weight: 400;
+    height: 100vh;
+    width: var(--navbar-width);
+    background-color: var(--color-navbar);
+    color: var(--color-white);
+}
+
+.brand {
+    font-size: 1.5rem;
+    margin: 1.5rem 0 1.5rem 1.8rem;
+}
+
+.contact {
+    margin-top: auto;
+}
+
+.contact :last-child {
+    margin-bottom: 1rem;
+}
+
+.list-items,
+.contact :first-child {
+    text-transform: uppercase;
+}
+
+.list-items,
+.contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.list-items > a,
+.contact > a {
+    width: 100%;
+    padding: 1rem;
+}
+
+.list-item > img {
+    padding-right: 6px;
+}
+
+.list-item:hover {
+    color: var(--color-green);
+    transition: color 200ms ease;
+}
+
+.list-item.active {
+    background-color: var(--color-dark);
+    border-left: 4px solid var(--color-green);
+    transition: 150ms ease-in;
+}

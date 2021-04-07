@@ -1,0 +1,13 @@
+.grid-header span {
+    display: flex;
+    align-items: center;
+}
+
+.grid-header img.sort-icon {
+    width: 1.5rem;
+    margin-left: 1rem;
+}
+
+.grid-header img.sorted {
+    border-bottom: 1px solid var(--color-light);
+}

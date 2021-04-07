@@ -1,0 +1,40 @@
+.grid {
+    width: 100%;
+}
+
+.grid tr.bg-light-gray {
+    background-color: #e8edf7;
+}
+
+.grid tr {
+    transition: background-color 150ms ease;
+}
+
+.grid tr.selected {
+    background-color: #d1e2d1;
+    transition: background-color 150ms ease;
+}
+
+.grid tr th,
+.grid tr td {
+    text-align: left;
+}
+
+.grid tr th {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+    font-weight: 600;
+}
+
+.grid tr td {
+    padding: 0.5rem;
+}
+
+.grid tr td > a {
+    color: var(--color-green);
+}
+
+.grid tr td > a:hover {
+    font-weight: 600;
+    cursor: pointer;
+}

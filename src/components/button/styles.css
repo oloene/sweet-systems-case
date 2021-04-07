@@ -1,0 +1,28 @@
+button {
+    text-align: center;
+    font-size: inherit;
+    font-family: inherit;
+    border: none;
+    border-radius: 4px;
+    color: var(--color-white);
+    background-color: var(--color-green);
+    height: var(--btn-height);
+    min-width: var(--btn-width);
+}
+
+button:hover {
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+    background-color: #5cca60f5;
+    transition: 300ms ease;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem 0 1rem;
+}
+
+.button-group > img {
+    margin-right: 4px;
+}

@@ -1,0 +1,13 @@
+.create-new-container {
+    display: flex;
+    margin: 5rem 4rem 1rem 4rem;
+}
+
+.create-new-container .button {
+    margin-left: auto;
+}
+
+.grid-container {
+    margin: 2rem 4rem 1rem 4rem;
+    border: 1px solid var(--color-border);
+}

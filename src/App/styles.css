@@ -24,6 +24,7 @@
 }
 
 body {
+    height: 100vh;
     font-size: var(--font-size);
     font-family: var(--font-family);
     color: var(--color-dark);
@@ -46,20 +47,6 @@ li {
     list-style: none;
 }
 
-button {
-    font-size: inherit;
-    font-family: inherit;
-    border: none;
-    border-radius: 4px;
-    color: var(--color-white);
-    background-color: var(--color-green);
-    height: var(--btn-height);
-    width: var(--btn-width);
-}
-
-button:hover {
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
-    background-color: #5cca60f5;
-    font-size: 0.9rem;
-    transition: 300ms ease;
+table {
+    border-collapse: collapse;
 }

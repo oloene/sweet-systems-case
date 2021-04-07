@@ -1,13 +1,16 @@
 import React from "react";
+import Button from "../button";
 import "./styles.css";
 
-export default function Card({ header, imgSrc, text }) {
+export default function Card({ header, imgSrc, text, btnText }) {
     return (
         <div className="card">
-            <img src={imgSrc} alt="" />
+            <div className="image">
+                <img src={imgSrc} alt="" />
+            </div>
             <div className="header">{header}</div>
             <div className="text">{text}</div>
-            <button>connect</button>
+            {btnText && <Button text={btnText} />}
         </div>
     );
 }

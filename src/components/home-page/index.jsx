@@ -21,16 +21,19 @@ export default function HomePage() {
                     header="Connect data sources"
                     text="You can build custom applications and make your work easier."
                     imgSrc={dataCollecting}
+                    btnText="Connect"
                 />
                 <Card
                     header="Invite users"
                     text="You can build custom applications and make your work easier."
                     imgSrc={userProfiles}
+                    btnText="Invite"
                 />
                 <Card
-                    header="Build your own apllication"
+                    header="Build your own application"
                     text="You can build custom applications and make your work easier."
                     imgSrc={hugoTrackStatistics}
+                    btnText="Create"
                 />
             </div>
         </div>

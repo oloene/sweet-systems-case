@@ -39,12 +39,16 @@
     padding: 1rem;
 }
 
+.list-item {
+    position: relative;
+}
+
 .list-item > img {
     padding-right: 6px;
 }
 
 .list-item:hover {
-    color: var(--color-green);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
     transition: color 200ms ease;
 }
 
@@ -52,4 +56,20 @@
     background-color: var(--color-dark);
     border-left: 4px solid var(--color-green);
     transition: 150ms ease-in;
+}
+
+.nr-applications {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    top: 0;
+    right: 1rem;
+}
+
+.nr-applications > span {
+    background-color: var(--color-green);
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-weight: 600;
 }

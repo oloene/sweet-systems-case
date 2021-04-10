@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { ApplicationContext } from "../../../applicationContext";
 import { nameValidator, urlValidator } from "../../../utils/validators";
 import Button from "../button";
 import TextField from "../text-field";
+import { format } from "date-fns";
 import "./styles.css";
 
 const NAME_MIN = 3;
@@ -17,16 +19,19 @@ const defaultErrors = {
     url: [],
 };
 
-export default function CreateNewForm({ setShowModal }) {
+export default function CreateNewForm({ setShowModal, setSortedBy, sortedBy }) {
     const [formValues, setFormValues] = useState(defaultFormValues);
     const [errors, setErrors] = useState(defaultErrors);
+    const { applications, setApplications, user } = useContext(
+        ApplicationContext
+    );
 
     /**
      * Validators for all form values
      */
     const validators = {
         name: (name) => nameValidator(name),
-        url: (url) => urlValidator(url),
+        url: (url) => urlValidator(url, applications),
     };
 
     /**
@@ -70,8 +75,22 @@ export default function CreateNewForm({ setShowModal }) {
             return;
         }
 
-        // Save valid..
-        alert("Saved!");
+        // Do save..
+        setApplications((prevApplications) => [
+            ...prevApplications,
+            {
+                name: formValues["name"],
+                url: `${formValues["url"]}.my.sweetcloud.se`,
+                created: format(new Date(), "yyyy-MM-dd"),
+                createdBy: user,
+            },
+        ]);
+
+        // Re-sort
+        setSortedBy({ ...sortedBy });
+
+        // Close modal
+        setShowModal(false);
     }
 
     return (

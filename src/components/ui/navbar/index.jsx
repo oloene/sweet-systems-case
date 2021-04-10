@@ -6,7 +6,7 @@ import Supervisor from "../../../assets/images/supervisorAccount.svg";
 import Settings from "../../../assets/images/settings.svg";
 import { NavLink } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ noOfApplications }) {
     return (
         <nav className="navbar">
             <NavLink className="brand" to="/">
@@ -15,6 +15,11 @@ export default function Navbar() {
             <div className="list-items">
                 <NavLink className="list-item" to="/applications">
                     <img src={NavApps} alt="" /> applications
+                    {noOfApplications && (
+                        <div className="nr-applications">
+                            <span>{noOfApplications}</span>
+                        </div>
+                    )}
                 </NavLink>
                 <NavLink className="list-item" to="/todo1">
                     <img src={DataBase} alt="" /> data sources

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import plus from "../../../assets/images/plus.svg";
 import Modal from "../../ui/modal";
 import GridHeader from "../../ui/grid-header";
@@ -7,35 +7,9 @@ import checkboxChecked from "../../../assets/images/checkbox_checked.svg";
 import checkbox from "../../../assets/images/checkbox.svg";
 import Button from "../../ui/button";
 import { sort_types, sortByProperty } from "../../../utils/sorting";
-import "./styles.css";
 import CreateNewForm from "../../ui/create-new-form";
-
-const testData = [
-    {
-        name: "Dashboard",
-        created: "2019-05-28",
-        createdBy: "Olof Enekvist",
-        url: "dimitri.my.sweetcloud.se",
-    },
-    {
-        name: "Homepage",
-        created: "2019-09-28",
-        createdBy: "Emelie Lundstrom",
-        url: "test.my.sweetcloud.se",
-    },
-    {
-        name: "Ether",
-        created: "2012-01-28",
-        createdBy: "Peter Hellstöm",
-        url: "stephanos.my.sweetcloud.se",
-    },
-    {
-        name: "Case54",
-        created: "2020-05-12",
-        createdBy: "Pelle Jöns",
-        url: "foreign.my.sweetcloud.se",
-    },
-];
+import "./styles.css";
+import { ApplicationContext } from "../../../applicationContext";
 
 const defaultSortedBy = {
     sortProperty: "created",
@@ -44,11 +18,21 @@ const defaultSortedBy = {
 };
 
 export default function ApplicationsPage() {
-    const [data, setData] = useState(testData);
+    const { applications, setApplications } = useContext(ApplicationContext);
     const [showModal, setShowModal] = useState(false);
     const [checkBoxAllSelected, setCheckBoxAllSelected] = useState(false);
     const [selectedRows, setSelectedRows] = useState({});
     const [sortedBy, setSortedBy] = useState(defaultSortedBy);
+
+    /**
+     * Sorts data whenever sortedBy property changes
+     */
+    useEffect(() => {
+        const { inverse, sortType, sortProperty } = sortedBy;
+        setApplications((prevData) =>
+            sortByProperty(prevData, inverse, sortType, sortProperty)
+        );
+    }, [sortedBy, setApplications]);
 
     /**
      * Memoize grid to only re-render when necessary
@@ -64,7 +48,7 @@ export default function ApplicationsPage() {
                         checkBoxAllSelected={checkBoxAllSelected}
                         toggleSelectAllRows={() => {
                             // Toggle item selection on all rows
-                            const allRowsSelected = data.reduce(
+                            const allRowsSelected = applications.reduce(
                                 (a, c) => ({
                                     ...a,
                                     [c.url]: !checkBoxAllSelected,
@@ -160,22 +144,12 @@ export default function ApplicationsPage() {
 
         return (
             <Grid
-                data={data}
+                data={applications}
                 renderHeader={renderHeader}
                 renderRow={renderRow}
             />
         );
-    }, [checkBoxAllSelected, data, sortedBy, selectedRows]);
-
-    /**
-     * Sorts data whenever sortedBy property changes
-     */
-    useMemo(() => {
-        const { inverse, sortType, sortProperty } = sortedBy;
-        setData((prevData) =>
-            sortByProperty(prevData, inverse, sortType, sortProperty)
-        );
-    }, [sortedBy]);
+    }, [applications, checkBoxAllSelected, sortedBy, selectedRows]);
 
     return (
         <div className="applications-page">
@@ -192,7 +166,11 @@ export default function ApplicationsPage() {
                 open={showModal}
                 onClose={() => setShowModal(false)}
             >
-                <CreateNewForm setShowModal={setShowModal} />
+                <CreateNewForm
+                    setShowModal={setShowModal}
+                    setSortedBy={setSortedBy}
+                    sortedBy={sortedBy}
+                />
             </Modal>
         </div>
     );

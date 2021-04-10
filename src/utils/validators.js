@@ -11,12 +11,16 @@ export function nameValidator(text) {
     return errors;
 }
 
-export function urlValidator(url) {
+export function urlValidator(url, applications) {
     const errors = [];
 
     const _url = url.trim();
 
     if (_url.length === 0) errors.push("url can't be blank");
+
+    // Unique urls..
+    if (applications.find(({ url }) => url === `${_url}.my.sweetcloud.se`))
+        errors.push("url has to be unique");
 
     return errors;
 }

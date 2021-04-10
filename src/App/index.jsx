@@ -1,10 +1,10 @@
 import React from "react";
-import Navbar from "../components/navbar";
+import Navbar from "../components/ui/navbar";
 import "./styles.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import TopBanner from "../components/top-banner";
-import HomePage from "../components/home-page";
-import ApplicationsPage from "../components/applications-page";
+import TopBanner from "../components/ui/top-banner";
+import HomePage from "../components/pages/home-page";
+import ApplicationsPage from "../components/pages/applications-page";
 
 export default function App() {
     return (

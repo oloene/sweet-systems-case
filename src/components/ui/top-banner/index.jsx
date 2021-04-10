@@ -1,8 +1,8 @@
 import React from "react";
-import userBanner from "../../assets/images/userBanner.svg";
-import navigationDropdown from "../../assets/images/navigationDropdown.svg";
+import userBanner from "../../../assets/images/userBanner.svg";
+import navigationDropdown from "../../../assets/images/navigationDropdown.svg";
 import { useLocation } from "react-router";
-import doorenterance from "../../assets/images/doorenterance.svg";
+import doorenterance from "../../../assets/images/doorenterance.svg";
 import "./styles.css";
 
 export default function TopBanner() {

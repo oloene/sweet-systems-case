@@ -1,0 +1,18 @@
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container.light {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+}
+
+.button {
+    margin: 0 1rem 0 1rem;
+}
+
+.button > img {
+    margin-right: 4px;
+}

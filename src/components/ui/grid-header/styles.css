@@ -8,6 +8,9 @@
     margin-left: 1rem;
 }
 
-.grid-header img.sorted {
+.grid-header img.sorted-ascending {
     border-bottom: 1px solid var(--color-light);
+}
+.grid-header img.sorted-descending {
+    border-top: 1px solid var(--color-light);
 }

@@ -11,7 +11,7 @@ export const sort_types = {
  * @param {string} sortProperty
  * @returns
  */
-export function sorter(array, inverse, type, sortProperty) {
+export function sortByProperty(array, inverse, type, sortProperty) {
     switch (type) {
         case sort_types._text: {
             return [...array].sort((a, b) =>
@@ -30,6 +30,6 @@ export function sorter(array, inverse, type, sortProperty) {
         }
 
         default:
-            throw new Error("invalid type");
+            break;
     }
 }

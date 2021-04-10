@@ -1,0 +1,20 @@
+.form > .text-field {
+    margin-top: 1rem;
+}
+
+.form > .button-group {
+    display: flex;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    margin-top: 2rem;
+}
+
+.form > .button-group > button:last-child {
+    margin-left: 1rem;
+}
+
+.form .errors {
+    color: var(--color-error);
+    font-size: 0.8rem;
+}

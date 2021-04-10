@@ -1,9 +1,9 @@
 import React from "react";
 import "./styles.css";
-import NavApps from "../../assets/images/navigationApps.svg";
-import DataBase from "../../assets/images/database.svg";
-import Supervisor from "../../assets/images/supervisorAccount.svg";
-import Settings from "../../assets/images/settings.svg";
+import NavApps from "../../../assets/images/navigationApps.svg";
+import DataBase from "../../../assets/images/database.svg";
+import Supervisor from "../../../assets/images/supervisorAccount.svg";
+import Settings from "../../../assets/images/settings.svg";
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {

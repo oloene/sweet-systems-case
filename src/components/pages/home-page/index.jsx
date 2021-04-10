@@ -1,11 +1,15 @@
 import React from "react";
-import Card from "../card";
-import dataCollecting from "../../assets/images/dataCollecting.svg";
-import userProfiles from "../../assets/images/userProfiles.svg";
-import hugoTrackStatistics from "../../assets/images/hugoTrackStatistics.svg";
+import Card from "../../ui/card";
+import dataCollecting from "../../../assets/images/dataCollecting.svg";
+import userProfiles from "../../../assets/images/userProfiles.svg";
+import hugoTrackStatistics from "../../../assets/images/hugoTrackStatistics.svg";
+import Button from "../../ui/button";
 import "./styles.css";
+import { useHistory } from "react-router-dom";
 
 export default function HomePage() {
+    const history = useHistory();
+
     return (
         <div className="home-page">
             <div className="heading">Let's Get Started</div>
@@ -21,20 +25,26 @@ export default function HomePage() {
                     header="Connect data sources"
                     text="You can build custom applications and make your work easier."
                     imgSrc={dataCollecting}
-                    btnText="Connect"
-                />
+                >
+                    <Button text="Connect" />
+                </Card>
                 <Card
                     header="Invite users"
                     text="You can build custom applications and make your work easier."
                     imgSrc={userProfiles}
-                    btnText="Invite"
-                />
+                >
+                    <Button text="Invite" />
+                </Card>
                 <Card
                     header="Build your own application"
                     text="You can build custom applications and make your work easier."
                     imgSrc={hugoTrackStatistics}
-                    btnText="Create"
-                />
+                >
+                    <Button
+                        text="Create"
+                        onClick={() => history.push("/applications")}
+                    />
+                </Card>
             </div>
         </div>
     );

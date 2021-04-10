@@ -1,0 +1,43 @@
+.text-field {
+    position: relative;
+    width: 100%;
+}
+
+.text-field-label {
+    display: block;
+    margin: 0 0 0.1rem 0.2rem;
+}
+.text-field-label.focused {
+    font-weight: 600;
+}
+.text-field-label.error {
+    color: var(--color-error);
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+.input-group.focused {
+    border: 1px solid var(--color-dark);
+}
+.input-group.error {
+    border: 1px solid var(--color-error);
+}
+
+.text-field-value {
+    font-family: "Poppins";
+    padding: 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 70%;
+    border: 0;
+    outline: 0;
+}
+
+.text-field .suffix {
+    margin: 0 0.5rem 0 0.5rem;
+}

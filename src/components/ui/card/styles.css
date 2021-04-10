@@ -24,3 +24,9 @@
     margin: 0 1rem 1.5rem 1rem;
     color: var(--color-light);
 }
+
+.card .children {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

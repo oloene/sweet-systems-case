@@ -43,6 +43,7 @@
 
 .modal-body {
     padding: 1rem;
+    height: auto;
 }
 
 /* BIG SCREEN */

@@ -33,7 +33,7 @@
 }
 
 /* VERY SMALL SCREEN */
-@media (max-width: 280px) {
+@media (max-width: 320px) {
     .current-location {
         font-size: 1.1rem;
         font-weight: 600;

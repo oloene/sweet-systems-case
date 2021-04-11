@@ -16,11 +16,15 @@
 }
 
 /* VERY SMALL SCREEN */
-@media (max-width: 280px) {
+@media (max-width: 320px) {
+    .form > .text-field {
+        padding: 0.5rem;
+    }
+
     .form > .button-group {
         display: flex;
         position: relative;
         right: 1rem;
-        margin-top: 5rem;
+        margin-top: 0;
     }
 }

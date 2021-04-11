@@ -6,24 +6,25 @@ import TopBanner from "../components/ui/top-banner";
 import HomePage from "../components/pages/home-page";
 import ApplicationsPage from "../components/pages/applications-page";
 import { ApplicationContext } from "../applicationContext.js";
+import { subDays } from "date-fns";
 import faker from "faker";
 
 const defaultApplications = [
     {
         name: "Dashboard",
-        created: "2019-05-28",
+        created: subDays(new Date(), 7),
         createdBy: faker.name.findName(),
         url: "test.my.sweetcloud.se",
     },
     {
         name: "Testboard",
-        created: "2019-01-12",
+        created: subDays(new Date(), 40),
         createdBy: faker.name.findName(),
         url: "test2.my.sweetcloud.se",
     },
     {
         name: "Boardtest",
-        created: "2018-01-12",
+        created: subDays(new Date(), 85),
         createdBy: faker.name.findName(),
         url: "atart.my.sweetcloud.se",
     },

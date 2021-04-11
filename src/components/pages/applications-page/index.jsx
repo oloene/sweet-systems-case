@@ -10,11 +10,12 @@ import { sort_types, sortByProperty } from "../../../utils/sorting";
 import CreateNewForm from "../../ui/create-new-form";
 import "./styles.css";
 import { ApplicationContext } from "../../../applicationContext";
+import { format } from "date-fns";
 
 const defaultSortedBy = {
     sortProperty: "created",
     inverse: true,
-    sortType: sort_types._text,
+    sortType: sort_types._date,
 };
 
 export default function ApplicationsPage() {
@@ -60,7 +61,6 @@ export default function ApplicationsPage() {
                             // Toggle checkbox as selected
                             setCheckBoxAllSelected((prevState) => !prevState);
                         }}
-                        sortedBy={sortedBy}
                     />
                     <GridHeader
                         text="Name"
@@ -80,7 +80,7 @@ export default function ApplicationsPage() {
                             setSortedBy((prevState) => ({
                                 sortProperty,
                                 inverse: !prevState.inverse,
-                                sortType: sort_types._text,
+                                sortType: sort_types._date,
                             }))
                         }
                         property="created"
@@ -133,7 +133,7 @@ export default function ApplicationsPage() {
                         />
                     </td>
                     <td>{name}</td>
-                    <td>{created}</td>
+                    <td>{format(created, "yyyy-MM-dd")}</td>
                     <td>{createdBy}</td>
                     <td>
                         <a href={url}>{url}</a>

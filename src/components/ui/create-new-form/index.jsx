@@ -3,7 +3,6 @@ import { ApplicationContext } from "../../../applicationContext";
 import { nameValidator, urlValidator } from "../../../utils/validators";
 import Button from "../button";
 import TextField from "../text-field";
-import { format } from "date-fns";
 import "./styles.css";
 
 const NAME_MIN = 3;
@@ -51,29 +50,24 @@ export default function CreateNewForm({ setShowModal, setSortedBy, sortedBy }) {
      */
     function saveNewApplication() {
         let hasError = false;
+        const formErrors = { ...defaultErrors };
+
+        // Check for errors
         for (const [property, value] of Object.entries(formValues)) {
-            if (validators[property](value).length > 0) {
+            const fieldErrors = validators[property](value);
+            if (fieldErrors.length > 0) {
                 hasError = true;
-                break;
+                formErrors[property] = fieldErrors;
             }
         }
 
         if (hasError) {
-            // Create error object..
-            const errors = Object.entries(formValues).reduce(
-                (errors, [property, value]) => {
-                    errors[property] = [
-                        ...(errors[property] || []),
-                        ...validators[property](value),
-                    ];
-
-                    return errors;
-                },
-                {}
-            );
-            setErrors(errors);
+            setErrors(formErrors);
             return;
         }
+
+        // Close modal
+        setShowModal(false);
 
         // Do save..
         setApplications((prevApplications) => [
@@ -81,16 +75,13 @@ export default function CreateNewForm({ setShowModal, setSortedBy, sortedBy }) {
             {
                 name: formValues["name"],
                 url: `${formValues["url"]}.my.sweetcloud.se`,
-                created: format(new Date(), "yyyy-MM-dd"),
+                created: new Date(),
                 createdBy: user,
             },
         ]);
 
         // Re-sort
         setSortedBy({ ...sortedBy });
-
-        // Close modal
-        setShowModal(false);
     }
 
     return (

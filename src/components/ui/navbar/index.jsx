@@ -16,7 +16,7 @@ export default function Navbar({ noOfApplications }) {
                 <NavLink className="list-item" to="/applications">
                     <img src={NavApps} alt="" />{" "}
                     <div className="list-item-text">applications</div>
-                    {noOfApplications && (
+                    {noOfApplications > 0 && (
                         <div className="nr-applications">
                             <span>{noOfApplications}</span>
                         </div>

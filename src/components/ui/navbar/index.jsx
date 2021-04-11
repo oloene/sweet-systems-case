@@ -14,31 +14,35 @@ export default function Navbar({ noOfApplications }) {
             </NavLink>
             <div className="list-items">
                 <NavLink className="list-item" to="/applications">
-                    <img src={NavApps} alt="" /> applications
+                    <img src={NavApps} alt="" />{" "}
+                    <div className="list-item-text">applications</div>
                     {noOfApplications && (
                         <div className="nr-applications">
                             <span>{noOfApplications}</span>
                         </div>
                     )}
                 </NavLink>
-                <NavLink className="list-item" to="/todo1">
-                    <img src={DataBase} alt="" /> data sources
+                <NavLink className="list-item" to="/dataSources">
+                    <img src={DataBase} alt="" />{" "}
+                    <div className="list-item-text">data sources</div>
                 </NavLink>
-                <NavLink className="list-item" to="/todo2">
-                    <img src={Supervisor} alt="" /> user management
+                <NavLink className="list-item" to="/userManagement">
+                    <img src={Supervisor} alt="" />{" "}
+                    <div className="list-item-text">user management</div>
                 </NavLink>
-                <NavLink className="list-item" to="/todo3">
-                    <img src={Settings} alt="" /> settings
+                <NavLink className="list-item" to="/settings">
+                    <img src={Settings} alt="" />{" "}
+                    <div className="list-item-text">settings</div>
                 </NavLink>
             </div>
             <div className="contact">
-                <NavLink className="list-item" to="/todo4">
+                <NavLink className="list-item" to="/support">
                     support
                 </NavLink>
-                <NavLink className="list-item" to="/todo5">
+                <NavLink className="list-item" to="/knowledgeBase">
                     Knowledge base
                 </NavLink>
-                <NavLink className="list-item" to="/todo6">
+                <NavLink className="list-item" to="/contact">
                     Contact us
                 </NavLink>
             </div>

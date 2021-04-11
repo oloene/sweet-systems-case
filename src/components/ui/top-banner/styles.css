@@ -31,3 +31,18 @@
     width: 1.5rem;
     height: auto;
 }
+
+/* VERY SMALL SCREEN */
+@media (max-width: 280px) {
+    .current-location {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-left: 0;
+    }
+
+    .current-location-image {
+        margin-right: 0;
+        width: 1.5rem;
+        height: auto;
+    }
+}

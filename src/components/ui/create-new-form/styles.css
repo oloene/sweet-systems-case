@@ -10,11 +10,17 @@
     margin-top: 2rem;
 }
 
-.form > .button-group > button:last-child {
-    margin-left: 1rem;
-}
-
 .form .errors {
     color: var(--color-error);
     font-size: 0.8rem;
+}
+
+/* VERY SMALL SCREEN */
+@media (max-width: 280px) {
+    .form > .button-group {
+        display: flex;
+        position: relative;
+        right: 1rem;
+        margin-top: 5rem;
+    }
 }

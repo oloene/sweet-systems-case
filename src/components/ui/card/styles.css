@@ -30,3 +30,14 @@
     align-items: center;
     justify-content: center;
 }
+
+/* VERY SMALL SCREEN */
+@media (max-width: 280px) {
+    .card .header {
+        margin: 0.5rem;
+    }
+
+    .card .text {
+        margin: 0.5rem;
+    }
+}

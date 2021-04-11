@@ -20,12 +20,13 @@
     --navbar-width: 15rem;
     --top-banner-height: 4rem;
     --border-width: 1px;
-    --btn-width: 158px;
+    --btn-width: 144px;
     --btn-height: 35px;
 }
 
 body {
-    height: 100vh;
+    height: 100%;
+    overflow: auto;
     font-size: var(--font-size);
     font-family: var(--font-family);
     color: var(--color-dark);
@@ -36,7 +37,7 @@ body {
 }
 
 .main {
-    margin-left: var(--navbar-width);
+    overflow: auto;
 }
 
 a {
@@ -73,4 +74,16 @@ button:hover {
 textarea,
 input {
     outline: none;
+}
+
+@media (max-width: 1000px) {
+    .main {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 1000px) {
+    .main {
+        margin-left: var(--navbar-width);
+    }
 }

@@ -23,11 +23,11 @@
     align-items: center;
     font-size: 1.1rem;
     font-weight: 600;
-    margin-left: 1.5rem;
+    margin-left: 0.5rem;
 }
 
 .current-location-image {
-    margin-right: 1.5rem;
+    margin-right: 0.5rem;
     width: 1.5rem;
     height: auto;
 }

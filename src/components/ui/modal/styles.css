@@ -43,14 +43,12 @@
 
 .modal-body {
     padding: 1rem;
-    overflow-y: auto;
-    height: 100%;
 }
 
 /* BIG SCREEN */
 @media (min-width: 1000px) {
     .modal {
-        height: 320px;
+        height: 420px;
         width: 520px;
     }
 }

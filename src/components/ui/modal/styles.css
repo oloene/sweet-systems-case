@@ -1,4 +1,6 @@
 .modal {
+    --modal-header-height: 64px;
+
     position: fixed;
     overflow-y: auto;
     background-color: var(--color-white);
@@ -6,10 +8,17 @@
     border-radius: 4px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -75%);
     overflow: auto;
-
-    --modal-header-height: 64px;
+}
+.modal.animation {
+    opacity: 0;
+}
+.modal.after-open {
+    opacity: 1;
+}
+.modal.after-close {
+    opacity: 0;
 }
 
 .overlay {
@@ -20,6 +29,15 @@
     left: 0;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 1000;
+}
+.overlay.animation {
+    opacity: 0;
+}
+.overlay.after-open {
+    opacity: 1;
+}
+.overlay.after-close {
+    opacity: 0;
 }
 
 .modal-header {

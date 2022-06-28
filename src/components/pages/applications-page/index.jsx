@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import plus from "../../../assets/images/plus.svg";
 import Modal from "../../ui/modal";
 import GridHeader from "../../ui/grid-header";
@@ -19,26 +19,16 @@ const defaultSortedBy = {
 };
 
 export default function ApplicationsPage() {
-    const { applications, setApplications } = useContext(ApplicationContext);
-    const [showModal, setShowModal] = useState(false);
+    const { applications } = useContext(ApplicationContext);
     const [checkBoxAllSelected, setCheckBoxAllSelected] = useState(false);
     const [selectedRows, setSelectedRows] = useState({});
     const [sortedBy, setSortedBy] = useState(defaultSortedBy);
-
-    /**
-     * Sorts data whenever sortedBy property changes
-     */
-    useEffect(() => {
-        const { inverse, sortType, sortProperty } = sortedBy;
-        setApplications((prevData) =>
-            sortByProperty(prevData, inverse, sortType, sortProperty)
-        );
-    }, [sortedBy, setApplications]);
+    const [toggleModal, setToggleModal] = useState(false);
 
     /**
      * Memoize grid to only re-render when necessary
      */
-    const grid = useMemo(() => {
+    const MemoizedGrid = useMemo(() => {
         /**
          * Renders the grid header
          */
@@ -144,7 +134,7 @@ export default function ApplicationsPage() {
 
         return (
             <Grid
-                data={applications}
+                data={sortByProperty(applications, sortedBy)}
                 renderHeader={renderHeader}
                 renderRow={renderRow}
             />
@@ -155,19 +145,20 @@ export default function ApplicationsPage() {
         <div className="applications-page">
             <div className="create-new-container">
                 <Button
-                    onClick={() => setShowModal(true)}
+                    onClick={() => setToggleModal(true)}
                     text="Create new application"
                     icon={plus}
                 />
             </div>
-            <div className="grid-container">{grid}</div>
+            <div className="grid-container">{MemoizedGrid}</div>
             <Modal
+                animation={{ duration: 150 }}
+                open={toggleModal}
                 headerText="New application"
-                open={showModal}
-                onClose={() => setShowModal(false)}
+                onClose={() => setToggleModal(false)}
             >
                 <CreateNewForm
-                    setShowModal={setShowModal}
+                    setShowModal={setToggleModal}
                     setSortedBy={setSortedBy}
                     sortedBy={sortedBy}
                 />

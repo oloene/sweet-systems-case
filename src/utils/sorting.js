@@ -9,13 +9,13 @@ export const sort_types = {
 /**
  * Sort array of objects by their sortProperty and type
  * @param {array} array
- * @param {bool} inverse
- * @param {string} type
- * @param {string} sortProperty
- * @returns
+ * @param {object: { inverse: bool, type: string, sortProperty: string }} sortedBy
+ * @returns sorted array
  */
-export function sortByProperty(array, inverse, type, sortProperty) {
-    switch (type) {
+export function sortByProperty(array, sortedBy) {
+    const { inverse, sortType, sortProperty } = sortedBy;
+
+    switch (sortType) {
         case sort_types._date: {
             return [...array].sort((a, b) => {
                 if (isBefore(a[sortProperty], b[sortProperty])) {
@@ -46,6 +46,6 @@ export function sortByProperty(array, inverse, type, sortProperty) {
         }
 
         default:
-            break;
+            return array;
     }
 }
